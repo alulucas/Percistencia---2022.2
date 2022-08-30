@@ -1,27 +1,25 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.Properties;
 
-public class App {
+public class Cpp {
+
+    private static Properties config = new Properties();
+    private static String root = "src\\config.properties";
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        int n1;
-        int n2;
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Insira o nome do arquivo de texto: ");
-        String arquivo = input.next();
-
-        System.out.println("Insira o primeiro número: ");
-        n1 = input.nextInt();
-
-        System.out.println("Insira o segundo número: ");
-        n2 = input.nextInt();
+        config.load(new FileInputStream(root));
     
-        InputStream is = new FileInputStream(arquivo);
+        InputStream is = new FileInputStream(config.getProperty("arquivo"));
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
 
         String str = "";
+
+
+        int n1 = Integer. parseInt(config.getProperty("linha_inicial"));
+        int n2 = Integer. parseInt(config.getProperty("linha_final"));
+        
 
         if (n2 == 0) {
             for (int i = 0; str != null; i++) {
@@ -42,6 +40,5 @@ public class App {
         }
 
         br.close();
-        input.close();
     }
 }
