@@ -1,13 +1,12 @@
-package exe1;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Serializa {
-    public static void main (String [] args) {
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+public class SerializaXML {
+    public static void main(String[] args) throws Exception {
 
         Filme filme = new Filme(001, "Como Treinar seu Dragão", "Soluço é um adolescente viking da ilha de Berk, onde lutar contra dragões é um meio de vida. Suas opiniões avançadas e um senso de humor estranho o tornam um desajustado, apesar de seu pai ser o chefe do clã.", "Chris Sanders, Dean DeBlois");
         Filme filme2 = new Filme(002, "Como Treinar seu Dragão", "Soluço é um adolescente viking da ilha de Berk, onde lutar contra dragões é um meio de vida. Suas opiniões avançadas e um senso de humor estranho o tornam um desajustado, apesar de seu pai ser o chefe do clã.", "Chris Sanders, Dean DeBlois");
@@ -19,19 +18,12 @@ public class Serializa {
         lista.add(filme2);
         lista.add(filme3);
 
-        FileOutputStream fileOut = null;
+        Filmes filmes = new Filmes(lista);
 
-        try {
-            fileOut = new FileOutputStream("filme.txt");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(lista);
+        File f = new File("Filme.xml");
 
-            out.close();
-            fileOut.close();
-
-            System.out.println("Serializado");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        XmlMapper xm = new XmlMapper();
+        xm.enable(SerializationFeature.INDENT_OUTPUT);
+        xm.writeValue(f, filmes);
     }
 }
