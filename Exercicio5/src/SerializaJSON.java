@@ -2,11 +2,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 
-public class SerializaXML {
+public class SerializaJSON {
     public static void main(String[] args) throws Exception {
 
         Filme filme = new Filme(001, "Como Treinar seu Dragão", "Soluço é um adolescente viking da ilha de Berk, onde lutar contra dragões é um meio de vida. Suas opiniões avançadas e um senso de humor estranho o tornam um desajustado, apesar de seu pai ser o chefe do clã.", "Chris Sanders, Dean DeBlois");
@@ -21,9 +22,9 @@ public class SerializaXML {
 
         Filmes filmes = new Filmes(lista);
 
-        File f = new File("Filme.jason");
+        File f = new File("Filme.json");
 
-        XmlMapper xm = new XmlMapper();
+        ObjectMapper xm = new ObjectMapper();
         xm.enable(SerializationFeature.INDENT_OUTPUT);
         xm.writeValue(f, filmes);
     }
