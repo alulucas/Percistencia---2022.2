@@ -7,17 +7,17 @@ import java.security.MessageDigest;
 import java.util.Scanner;
 
 public class EncryptarSha1 {
-    public void gerar() throws Exception{
+    public static void main(String[] args)throws Exception {
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do file: ");
         String file = scanner.nextLine();
        
         MessageDigest digestm = MessageDigest.getInstance("sha-1");
-        digestm.reset();
         digestm.update(file.getBytes());
 
-        String sha1 = String.format("%040x",new BigInteger(1,digestm.digest()).toString(16));
-        System.out.println("hash =" + sha1);
+        String sha1 = new BigInteger(1,digestm.digest()).toString(16);
+        System.out.println("hash = " + sha1);
         scanner.close();
     }
 }

@@ -3,31 +3,31 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@JacksonXmlRootElement(localName = "Lista de Fichas")
+@JacksonXmlRootElement(localName = "ListaDePerfis")
 public class ArrayPerfil {
-    private List<Perfil> perfis;
+    private List<Perfil> perfil;
 
     public ArrayPerfil(){
     }
 
-    public ArrayPerfil(List<Perfil> perfis) {
-        this.perfis = perfis;
+    public ArrayPerfil(List<Perfil> perfil) {
+        this.perfil = perfil;
     }
 
-    @JacksonXmlElementWrapper(localName = "Perfil")
+    @JacksonXmlElementWrapper(localName = "Perfis")
     @JacksonXmlProperty(localName = "perfil")
 
     public List<Perfil> getPerfil() {
-        return perfis;
+        return perfil;
     }
 
-    public void setPerfil(List<Perfil> perfis) {
-        this.perfis = perfis;
+    public void setPerfil(List<Perfil> perfil) {
+        this.perfil = perfil;
     }
 
     @Override
     public String toString() {
-        return this.perfis.toString();        
+        return this.perfil.toString();        
     }
 
 }

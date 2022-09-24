@@ -1,0 +1,9 @@
+{
+  "perfil" : [ {
+    "name" : "all",
+    "forca" : 12,
+    "energia" : 34,
+    "poder" : 12,
+    "decription" : "qseq"
+  } ]
+}

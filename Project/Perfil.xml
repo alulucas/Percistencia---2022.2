@@ -1,0 +1,11 @@
+<ListaDePerfis>
+  <Perfis>
+    <perfil>
+      <name>all</name>
+      <forca>12</forca>
+      <energia>34</energia>
+      <poder>12</poder>
+      <decription>qseq</decription>
+    </perfil>
+  </Perfis>
+</ListaDePerfis>
