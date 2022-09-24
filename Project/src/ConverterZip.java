@@ -25,8 +25,6 @@ public class ConverterZip {
         zipOut.write(bytes, 0, bytes.length);
         zipOut.closeEntry();
         zipOut.close();
- 
-   
         scanner.close();
     }
 }
