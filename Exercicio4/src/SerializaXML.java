@@ -21,7 +21,7 @@ public class SerializaXML {
 
         Filmes filmes = new Filmes(lista);
 
-        File f = new File("Filme.jason");
+        File f = new File("Filme.xml");
 
         XmlMapper xm = new XmlMapper();
         xm.enable(SerializationFeature.INDENT_OUTPUT);
