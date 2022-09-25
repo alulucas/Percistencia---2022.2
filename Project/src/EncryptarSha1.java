@@ -17,7 +17,7 @@ public class EncryptarSha1 {
         digestm.update(file.getBytes());
 
         String sha1 = new BigInteger(1,digestm.digest()).toString(16);
-        System.out.println("hash = " + sha1);
+        System.out.println("HASH = [" + sha1 + "]");
         scanner.close();
     }
 }
