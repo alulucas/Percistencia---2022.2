@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 import java.util.Scanner;
 
 public class EncryptarSha1 {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args)throws Exception { /*Referencias: hash SHA1: https://www.baeldung.com/java-md5  */ 
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do file: ");

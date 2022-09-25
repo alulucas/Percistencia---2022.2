@@ -13,7 +13,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
-public class ConverterCSvXMl {
+public class ConverterCSvXMl {/* Referencias: https://dicasdejava.com.br/como-escrever-arquivos-csv-em-java/#:~:text=Outra%20forma%20interessante%20de%20criar,os%20atributos%20contidos%20no%20CSV.&text=Agora%20vamos%20escrever%20o%20CSV,ou%20seja%20List%20 */
     public static void main(String[] args) throws Exception, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException  {
         
         Scanner scan = new Scanner(System.in);
