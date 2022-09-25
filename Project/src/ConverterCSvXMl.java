@@ -1,16 +1,16 @@
 /*3 Crie uma classe Java que recebe via linha de comando o nome de um arquivo qualquer em formato JSON e o converte para os formatos CSV e XML. */
 import java.io.File;
 import java.io.Writer;
+import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 public class ConverterCSvXMl {
