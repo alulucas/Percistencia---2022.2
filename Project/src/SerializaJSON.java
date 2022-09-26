@@ -33,7 +33,7 @@ public class SerializaJSON {
         lista.add(perfil);
 
         
-        ArrayPerfil perfis = new ArrayPerfil(lista);
+        Perfis perfis = new Perfis(lista);
         File f = new File("Perfil.json");
         ObjectMapper om = new ObjectMapper();
         om.enable(SerializationFeature.INDENT_OUTPUT);

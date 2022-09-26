@@ -21,7 +21,7 @@ public class ConverterCSvXMl {/* Referencias do CSV: https://dicasdejava.com.br/
 
         File file = new File(scan.next());
         ObjectMapper Objectmapper = new ObjectMapper();
-        ArrayPerfil perfil = Objectmapper.readValue(file,ArrayPerfil.class);
+        Perfis perfil = Objectmapper.readValue(file,Perfis.class);
 
         File f = new File("Perfil.xml");
         XmlMapper xm = new XmlMapper();
@@ -29,8 +29,8 @@ public class ConverterCSvXMl {/* Referencias do CSV: https://dicasdejava.com.br/
         xm.writeValue(f, perfil);
         
         Writer writer = Files.newBufferedWriter(Paths.get("Perfil.csv"));
-        StatefulBeanToCsv<ArrayPerfil> beanToCsv = new StatefulBeanToCsvBuilder<ArrayPerfil>(writer).build();
-        beanToCsv.write(perfil);
+        StatefulBeanToCsv<Perfis> stateful = new StatefulBeanToCsvBuilder<Perfis>(writer).build();
+        stateful.write(perfil);
 
         writer.flush();
         writer.close();

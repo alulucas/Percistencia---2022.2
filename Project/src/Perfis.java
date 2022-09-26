@@ -4,13 +4,13 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName = "ListaDePerfis")
-public class ArrayPerfil {
+public class Perfis {
     private List<Perfil> perfil;
 
-    public ArrayPerfil(){
+    public Perfis(){
     }
 
-    public ArrayPerfil(List<Perfil> perfil) {
+    public Perfis(List<Perfil> perfil) {
         this.perfil = perfil;
     }
 

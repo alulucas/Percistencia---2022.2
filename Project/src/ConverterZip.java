@@ -1,3 +1,4 @@
+
 /*4. Crie uma classe Java que recebe como entrada de teclado o nome de um file qualquer e o compacta para o formato ZIP ou outro formato de compressão à sua escolha. */
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -6,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -13,33 +16,26 @@ public class ConverterZip { /*Referencias: https://www.devmedia.com.br/compactan
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        int buff = 4096;
         int cont;
-        byte[] qtd = new byte[buff];
-
+        
         System.out.println("Digite o nome do Arquivo: ");
         String nome = scanner.nextLine();
         File file = new File(nome);
-        String Arquivo = file.getName().concat(".zip");
+        String Arquivo =  nome.substring(0, nome.lastIndexOf('.')).concat(".zip");
+        byte[] qtd = Files.readAllBytes(Paths.get(nome));
 
-        BufferedInputStream bufferedInputStream = null;
-        FileInputStream InputStream = null;
-        FileOutputStream outputStream = null;
-        ZipOutputStream zipOutputStream = null;
-        ZipEntry zipEntry = null;
-
-        outputStream = new FileOutputStream(Arquivo);
-        zipOutputStream = new ZipOutputStream(new BufferedOutputStream(outputStream));
-        InputStream = new FileInputStream(Arquivo);
-        bufferedInputStream = new BufferedInputStream(InputStream, buff);
-        zipEntry = new ZipEntry(file.getName());
+        FileOutputStream outputStream = new FileOutputStream(new File(Arquivo));
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(outputStream));
+        FileInputStream InputStream = new FileInputStream(file);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(InputStream, qtd.length);
+        ZipEntry zipEntry = new ZipEntry(file.getName());
         zipOutputStream.putNextEntry(zipEntry);
 
-        while((cont = bufferedInputStream.read(qtd, 0, buff)) != -1) {
+        while ((cont = bufferedInputStream.read(qtd, 0, qtd.length)) != -1) {
             zipOutputStream.write(qtd, 0, cont);
         }
-        
-        bufferedInputStream.close();
+
+        bufferedInputStream.close(); 
         zipOutputStream.close();
         scanner.close();
     }
