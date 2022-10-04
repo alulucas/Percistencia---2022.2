@@ -2,9 +2,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class AlunoDAO {
 
@@ -35,9 +32,8 @@ public class AlunoDAO {
 
     }
 
-    public List<Aluno> list(Connection connection){
+    public void list(Connection connection){
         try {
-            List<Aluno> alunos = new ArrayList<Aluno>();
             String select = "select * from aluno";
             PreparedStatement preparedStatement = connection.prepareStatement(select);
 
@@ -52,12 +48,11 @@ public class AlunoDAO {
                 aluno.setEmail(result.getString("email"));
                 aluno.setTelefone(result.getString("telefone"));
 
-                alunos.add(aluno);
+                System.out.println(aluno);
             }
 
             result.close();
             preparedStatement.close();
-            return alunos;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -48,7 +48,7 @@ public class Main {
 
             if(esc == 2){
                 System.out.print("\033[H\033[2J");
-                System.out.println(alunos.list(connection));
+                alunos.list(connection);
             }
 
             if(esc == 3){
